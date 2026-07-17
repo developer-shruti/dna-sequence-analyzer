@@ -2,6 +2,7 @@
 from file_handler import FileHandler
 from validator import Validator
 from dna_analyzer import DNAAnalyzer
+from report_generator import ReportGenerator
 
 try:                    
     file_handler = FileHandler()
@@ -12,7 +13,9 @@ try:
     is_valid, message = validator.validate_sequence(data)
     if is_valid:
         analyzed_results=dna_analyzer.analyze_sequence(data)
-        print(analyzed_results)
+        report_generator = ReportGenerator()
+        report = report_generator.generate_report(analyzed_results)
+        print(report)
     else:
         print(message)                         
 except FileNotFoundError:
