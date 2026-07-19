@@ -1,6 +1,10 @@
+import logging
+from logger_config import logger
+
 class Validator:
     def validate_sequence(self, sequence: str) -> tuple:
         if sequence is None or sequence.strip() == "":
+            logger.warning("The sequence is empty.")
             return (False, "The sequence is empty.")
         else:
             valid_set = {"A", "C", "G", "T"}
