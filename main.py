@@ -24,7 +24,7 @@ try:
         logger.warning(f"The sequence is invalid. {message}")
         print(message)                         
 except FileNotFoundError:
-    logger.exception("The file was not found.")
+    logger.exception(f"{file_name} The file was not found.")
     print("Error: The file was not found.")
 except Exception as e:
     logger.exception(f"An error occurred while reading the file. {e}")
